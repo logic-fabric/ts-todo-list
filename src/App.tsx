@@ -1,14 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
+export function App(): JSX.Element {
+  const sum = (a: number, b: number): number => a + b;
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h1>{sum(11, 31)} is the meaning of life.</h1>
+
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -21,5 +24,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
