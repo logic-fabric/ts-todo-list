@@ -2,10 +2,10 @@ import { NewTaskButton } from "../NewTaskButton/NewTaskButton.tsx";
 
 export function TodoList(): JSX.Element {
   return (
-    <ul>
+    <ol>
       <li>
         <NewTaskButton />
       </li>
-    </ul>
+    </ol>
   );
 }
