@@ -9,7 +9,7 @@ describe("GIVEN a HomePage component", () => {
     expect(screen.getByRole("main")).toBeInTheDocument();
   });
 
-  test("THEN it should contain a <h1> with 'todo list' OR 'to do list' in its textContent", () => {
+  test("THEN it should contain a <h1> with 'todo list' OR 'to do list' in its content", () => {
     render(<HomePage />);
 
     expect(
