@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { App } from "./App.tsx";
+import { HomePage } from "./pages/Home/HomePage.tsx";
 
-import "./index.css";
+import "./css/index.css";
 
 import { reportWebVitals } from "./reportWebVitals.ts";
 
@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <App />
+    <HomePage />
   </React.StrictMode>
 );
 
