@@ -5,7 +5,7 @@ import { App } from "./App.tsx";
 
 import "./index.css";
 
-import { reportWebVitals } from "./reportWebVitals.tsx";
+import { reportWebVitals } from "./reportWebVitals.ts";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
