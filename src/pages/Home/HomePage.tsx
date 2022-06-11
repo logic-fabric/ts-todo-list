@@ -1,9 +1,11 @@
-export function HomePage(): JSX.Element {
-  // const sum = (a: number, b: number): number => a + b;
+import { TodoList } from "../../components/atoms/TodoList.tsx";
 
+export function HomePage(): JSX.Element {
   return (
     <main>
       <h1>TODO List</h1>
+
+      <TodoList />
     </main>
   );
 }
