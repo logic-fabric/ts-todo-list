@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 
 import { TodoList } from "./TodoList";
 
+const NEW_TASK_BUTTON_TEXT_CONTENT_REGEX = /add a new task/i;
+
 describe("GIVEN a TodoList component", () => {
   test("THEN it should contain a 'list' element", () => {
     render(<TodoList />);
@@ -12,15 +14,19 @@ describe("GIVEN a TodoList component", () => {
   test("THEN it should contain a 'listitem' with 'add a new task' in its content", () => {
     render(<TodoList />);
 
-    expect(screen.getByText(/add a new task/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(NEW_TASK_BUTTON_TEXT_CONTENT_REGEX)
+    ).toBeInTheDocument();
   });
 
   test("THEN it should contain a 'button' with 'add a new task' as textContent", () => {
     render(<TodoList />);
 
-    const addNewTaskElement = screen.getByRole("button");
+    const newTaskElement = screen.getByRole("button");
 
-    expect(addNewTaskElement).toBeInTheDocument();
-    expect(addNewTaskElement).toHaveTextContent(/add a new task/i);
+    expect(newTaskElement).toBeInTheDocument();
+    expect(newTaskElement).toHaveTextContent(
+      NEW_TASK_BUTTON_TEXT_CONTENT_REGEX
+    );
   });
 });
