@@ -20,29 +20,4 @@ describe("GIVEN a NewTaskButton component", () => {
     expect(newTaskElement).toBeInTheDocument();
     expect(newTaskElement).toHaveTextContent(ADD_NEW_TASK_REGEX);
   });
-
-  describe("WHEN user clicks on 'add a new task' element", () => {
-    test("THEN an 'add task' element is present", async () => {
-      render(<NewTaskButton />);
-
-      const newTaskElement = screen.getByText(ADD_NEW_TASK_REGEX);
-      expect(newTaskElement).toBeInTheDocument();
-
-      fireEvent.click(newTaskElement);
-
-      const addTaskElement = screen.getByText(ADD_TASK_REGEX);
-      expect(addTaskElement).toBeInTheDocument();
-    });
-
-    test("THEN there is no more 'add a new task' element", async () => {
-      render(<NewTaskButton />);
-
-      const newTaskElement = screen.getByText(ADD_NEW_TASK_REGEX);
-      expect(newTaskElement).toBeInTheDocument();
-
-      fireEvent.click(newTaskElement);
-
-      expect(screen.queryByText(ADD_NEW_TASK_REGEX)).not.toBeInTheDocument();
-    });
-  });
 });
