@@ -119,7 +119,6 @@ ol {
 }
 
 button {
-  margin: 0.25rem 0;
   padding: 1rem 2rem;
   border: none;
   border-radius: 0.5rem;
@@ -138,5 +137,5 @@ button:hover {
 }
 
 button:active {
-  transform: scaleX(1.1);
+  transform: scale(1.2, 1.1);
 }
