@@ -136,3 +136,7 @@ button {
 button:hover {
   background: var(--primary-600);
 }
+
+button:active {
+  transform: scaleX(1.1);
+}

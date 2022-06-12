@@ -1,3 +1,11 @@
+import { useState } from "react";
+
 export function NewTaskButton(): JSX.Element {
-  return <button>Add a new task</button>;
+  const [isClicked, setIsClicked] = useState(false);
+
+  return (
+    <button onClick={() => setIsClicked(!isClicked)}>
+      {isClicked ? "Add task" : "Add a new task"}
+    </button>
+  );
 }
