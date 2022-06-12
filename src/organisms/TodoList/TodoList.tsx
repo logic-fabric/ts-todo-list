@@ -1,4 +1,4 @@
-import { TodoListItem } from "../../molecules/TodoListItem/TodoListItem";
+import { TodoListItem } from "../../molecules/TodoListItem/TodoListItem.tsx";
 
 export function TodoList(): JSX.Element {
   return (

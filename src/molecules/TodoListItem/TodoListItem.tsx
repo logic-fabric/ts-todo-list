@@ -1,4 +1,4 @@
-import { NewTaskButton } from "../../atoms/NewTaskButton/NewTaskButton";
+import { NewTaskButton } from "../../atoms/NewTaskButton/NewTaskButton.tsx";
 
 export function TodoListItem(): JSX.Element {
   return (
