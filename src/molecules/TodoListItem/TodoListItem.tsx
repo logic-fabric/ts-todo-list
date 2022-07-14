@@ -9,12 +9,21 @@ export function TodoListItem(): JSX.Element {
 
   return (
     <ListItem>
-      {canInputTask && <TextInput />}
+      {canInputTask ? (
+        <form>
+          <TextInput />
 
-      <NewTaskButton
-        canInputTask={canInputTask}
-        onClick={(): void => setCanInputTask(!canInputTask)}
-      />
+          <NewTaskButton
+            canInputTask={canInputTask}
+            onClick={(): void => setCanInputTask(!canInputTask)}
+          />
+        </form>
+      ) : (
+        <NewTaskButton
+          canInputTask={canInputTask}
+          onClick={(): void => setCanInputTask(!canInputTask)}
+        />
+      )}
     </ListItem>
   );
 }
