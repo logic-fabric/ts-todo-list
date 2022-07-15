@@ -1,25 +1,24 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import {
+  fireEvent,
+  render,
+  screen,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 
-import { TodoListItem } from "./TodoListItem";
+import { AddTodoBar } from "./AddTodoBar";
 
 const ADD_NEW_TASK_REGEX = /add a new task/i;
 const ADD_TASK_REGEX = /add task/i;
 
-describe("GIVEN a TodoListitem component", () => {
-  test("THEN it should contain a 'listitem' element", () => {
-    render(<TodoListItem />);
-
-    expect(screen.getByRole("listitem")).toBeInTheDocument();
-  });
-
+describe("GIVEN a AddTodoBar component", () => {
   test("THEN it should NOT contain a form", () => {
-    render(<TodoListItem />);
+    render(<AddTodoBar />);
 
     expect(screen.queryByRole("form")).not.toBeInTheDocument();
   });
 
   test("THEN it should contain a unique 'button' element", () => {
-    render(<TodoListItem />);
+    render(<AddTodoBar />);
 
     expect(screen.getByRole("button")).toBeInTheDocument();
 
@@ -27,7 +26,7 @@ describe("GIVEN a TodoListitem component", () => {
   });
 
   test("THEN it should contain a 'button' with 'add a new task' as textContent", () => {
-    render(<TodoListItem />);
+    render(<AddTodoBar />);
 
     const taskButton = screen.getByRole("button");
 
@@ -36,23 +35,25 @@ describe("GIVEN a TodoListitem component", () => {
   });
 
   test("THEN it should NOT contain a 'textbox' element", () => {
-    render(<TodoListItem />);
+    render(<AddTodoBar />);
 
     expect(screen.queryAllByRole("textbox").length).toBe(0);
   });
 
   describe("WHEN user clicks on 'add a new task' element", () => {
-    test("THEN it should NOT contain a form", () => {
-      render(<TodoListItem />);
+    test("THEN it should contain a form", () => {
+      render(<AddTodoBar />);
 
       const newTaskElement = screen.getByText(ADD_NEW_TASK_REGEX);
       fireEvent.click(newTaskElement);
 
-      expect(screen.getByRole("form")).toBeInTheDocument();
+      waitForElementToBeRemoved(newTaskElement).then(() =>
+        expect(screen.getByRole("form")).toBeInTheDocument()
+      );
     });
 
     test("THEN an 'add task' element is present", async () => {
-      render(<TodoListItem />);
+      render(<AddTodoBar />);
 
       const newTaskElement = screen.getByText(ADD_NEW_TASK_REGEX);
       fireEvent.click(newTaskElement);
@@ -61,7 +62,7 @@ describe("GIVEN a TodoListitem component", () => {
     });
 
     test("THEN the 'add a new task' element is NO MORE present", () => {
-      render(<TodoListItem />);
+      render(<AddTodoBar />);
 
       const newTaskElement = screen.getByText(ADD_NEW_TASK_REGEX);
       fireEvent.click(newTaskElement);
@@ -70,7 +71,7 @@ describe("GIVEN a TodoListitem component", () => {
     });
 
     test("THEN it should contain a unique 'textbox' element", () => {
-      render(<TodoListItem />);
+      render(<AddTodoBar />);
 
       const newTaskElement = screen.getByText(ADD_NEW_TASK_REGEX);
       fireEvent.click(newTaskElement);
