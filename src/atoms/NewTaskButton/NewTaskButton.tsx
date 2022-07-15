@@ -1,3 +1,5 @@
+import React from "react";
+
 export function NewTaskButton(props): JSX.Element {
   const { canInputTask, onClick } = props;
 
