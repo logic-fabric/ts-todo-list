@@ -5,7 +5,7 @@ import { TodoList } from "./TodoList";
 const NEW_TASK_BUTTON_TEXT_CONTENT_REGEX = /add a new task/i;
 
 describe("GIVEN a TodoList component", () => {
-  test.skip("THEN it should contain a 'list' element", () => {
+  test("THEN it should contain a 'list' element", () => {
     render(<TodoList />);
 
     expect(screen.getByRole("list")).toBeInTheDocument();

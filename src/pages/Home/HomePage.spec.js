@@ -20,7 +20,7 @@ describe("GIVEN a HomePage component", () => {
     ).toBeInTheDocument();
   });
 
-  test.skip("THEN it should contain a 'list' element", () => {
+  test("THEN it should contain a 'list' element", () => {
     render(<HomePage />);
 
     expect(screen.getByRole("list")).toBeInTheDocument();
