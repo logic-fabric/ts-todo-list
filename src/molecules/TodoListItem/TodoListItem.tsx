@@ -4,15 +4,31 @@ import styled from "styled-components";
 
 import { NewTaskButton } from "../../atoms/NewTaskButton/NewTaskButton.tsx";
 
+import { ITodoTask } from "../../types/ITodoTask";
+
 type FormEvent = React.FormEvent<HTMLFormElement>;
 type changeEvent = React.ChangeEvent<HTMLInputElement>;
 
-export function TodoListItem(): JSX.Element {
+export function TodoListItem(props): JSX.Element {
+  const { todoTasks, setTodoTasks } = props;
+
   const [canInputTask, setCanInputTask] = useState<boolean>(false);
   const [textInputValue, setTextInputValue] = useState<string>("");
 
+  const addTodoTask = (description: string): void => {
+    const newTodoTasks: ITodoTask[] = [
+      ...todoTasks,
+      { description: description, isDone: false },
+    ];
+    setTodoTasks(newTodoTasks);
+  };
+
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
+
+    if (textInputValue !== "") {
+      addTodoTask(textInputValue);
+    }
 
     setTextInputValue("");
     setCanInputTask(!canInputTask);
