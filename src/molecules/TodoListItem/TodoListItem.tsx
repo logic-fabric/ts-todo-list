@@ -9,12 +9,19 @@ export function TodoListItem(props): JSX.Element {
 
   const changeTaskStatus = (): void => {
     const newTodoTasks: ITodoTask[] = [...todoTasks];
-    const changedTask = {
+    const changedTask: ITodoTask = {
       ...newTodoTasks[taskIndex],
       isDone: !newTodoTasks[taskIndex].isDone,
     };
 
     newTodoTasks[taskIndex] = changedTask;
+
+    setTodoTasks(newTodoTasks);
+  };
+
+  const removeTask = (): void => {
+    const newTodoTasks: ITodoTask[] = [...todoTasks];
+    newTodoTasks.splice(taskIndex, 1);
 
     setTodoTasks(newTodoTasks);
   };
@@ -29,9 +36,13 @@ export function TodoListItem(props): JSX.Element {
         </TodoDescription>
       </TodoTask>
 
-      <button type="button" onClick={changeTaskStatus}>
-        {task.isDone ? "Done" : "Undo"}
-      </button>
+      <ActionButtons>
+        <button type="button" onClick={changeTaskStatus}>
+          {task.isDone ? "Done" : "Undo"}
+        </button>
+
+        <RemoveButton type="button" onClick={removeTask} />
+      </ActionButtons>
     </ListItem>
   );
 }
@@ -66,4 +77,50 @@ const ToDoStatus = styled.span`
 
 const TodoDescription = styled.span`
   text-decoration: ${(props) => (props.isDone ? "line-through" : "none")};
+`;
+
+const ActionButtons = styled.div`
+  display: flex;
+`;
+
+const RemoveButton = styled.button`
+  psoition: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0 0 1rem;
+  padding: 0;
+  border-radius: 50%;
+
+  color: white;
+
+  background: var(--danger-500);
+
+  &:hover {
+    background: var(--danger-700);
+  }
+
+  &::after,
+  &::before {
+    position: absolute;
+
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 0rem solid transparent;
+    border-top-color: white;
+    border-top-width: 0.25rem;
+
+    content: "";
+  }
+
+  &::after {
+    transform: translate(-0.375rem, 0.375rem) rotate(45deg);
+  }
+
+  &::before {
+    transform: translate(0.375rem, 0.375rem) rotate(-45deg);
+  }
 `;
