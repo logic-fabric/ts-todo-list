@@ -19,9 +19,12 @@ export function TodoList(): JSX.Element {
       <AddTodoBar todoTasks={todoTasks} setTodoTasks={setTodoTasks} />
 
       <TasksList>
-        {todoTasks.map((task) => (
+        {todoTasks.map((task, index) => (
           <TodoListItem
-            todoTask={task}
+            taskIndex={index}
+            task={task}
+            todoTasks={todoTasks}
+            setTodoTasks={setTodoTasks}
             key={task.description.replace(" ", "-")}
           />
         ))}

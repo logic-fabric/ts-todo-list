@@ -20,6 +20,7 @@ export function AddTodoBar(props): JSX.Element {
       ...todoTasks,
       { description: description, isDone: false },
     ];
+
     setTodoTasks(newTodoTasks);
   };
 
