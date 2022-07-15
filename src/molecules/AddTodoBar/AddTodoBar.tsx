@@ -9,7 +9,7 @@ import { ITodoTask } from "../../types/ITodoTask";
 type FormEvent = React.FormEvent<HTMLFormElement>;
 type changeEvent = React.ChangeEvent<HTMLInputElement>;
 
-export function TodoListItem(props): JSX.Element {
+export function AddTodoBar(props): JSX.Element {
   const { todoTasks, setTodoTasks } = props;
 
   const [canInputTask, setCanInputTask] = useState<boolean>(false);
@@ -35,7 +35,7 @@ export function TodoListItem(props): JSX.Element {
   };
 
   return (
-    <ListItem>
+    <AddTodoBarContainer>
       {canInputTask ? (
         <form onSubmit={handleSubmit}>
           <TextInput
@@ -53,11 +53,11 @@ export function TodoListItem(props): JSX.Element {
           onClick={(): void => setCanInputTask(!canInputTask)}
         />
       )}
-    </ListItem>
+    </AddTodoBarContainer>
   );
 }
 
-const ListItem = styled.li`
+const AddTodoBarContainer = styled.div`
   padding: 0.75rem;
   border-radius: 0.5rem;
 

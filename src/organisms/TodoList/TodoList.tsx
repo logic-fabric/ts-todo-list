@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { TodoListItem } from "../../molecules/TodoListItem/TodoListItem.tsx";
+import { AddTodoBar } from "../../molecules/AddTodoBar/AddTodoBar.tsx";
 
 import { ITodoTask } from "../../types/ITodoTask";
 
@@ -11,9 +11,5 @@ export function TodoList(): JSX.Element {
     console.log({ todoTasks });
   }, [todoTasks]);
 
-  return (
-    <ol>
-      <TodoListItem todoTasks={todoTasks} setTodoTasks={setTodoTasks} />
-    </ol>
-  );
+  return <AddTodoBar todoTasks={todoTasks} setTodoTasks={setTodoTasks} />;
 }
