@@ -63,7 +63,7 @@ const AddTodoBarContainer = styled.div`
   padding: 0.75rem;
   border-radius: 0.5rem;
 
-  background: var(--primary-100);
+  background: var(--tonic-100);
 
   transition: all 300ms;
 `;
@@ -73,19 +73,19 @@ const TextInput = styled.input`
   padding: 0.75rem 0;
   border: 0 solid transparent;
   border-width: 0.25rem 0;
-  border-bottom-color: var(--primary-500);
+  border-bottom-color: var(--tonic-700);
   overflow: hidden;
 
-  color: var(--primary-700);
+  color: var(--tonic-700);
   font-size: var(--txt-size);
   font-weight: 500;
 
-  background: var(--primary-100);
+  background: var(--tonic-100);
   outline: none;
 
   transition: all 300ms;
 
   &:focus {
-    border-color: var(--primary-500);
+    border-color: var(--tonic-700);
   }
 `;

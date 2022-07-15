@@ -1,11 +1,23 @@
 import React from "react";
 
+import styled from "styled-components";
+
 export function NewTaskButton(props): JSX.Element {
   const { canInputTask, onClick } = props;
 
   return (
-    <button type={canInputTask ? "submit" : "button"} onClick={onClick}>
+    <TaskButton type={canInputTask ? "submit" : "button"} onClick={onClick}>
       {canInputTask ? "Add task" : "Add a new task"}
-    </button>
+    </TaskButton>
   );
 }
+
+const TaskButton = styled.button`
+  padding: 1rem 2rem;
+
+  background: var(--tonic-700);
+
+  &:hover {
+    background: var(--tonic-500);
+  }
+`;

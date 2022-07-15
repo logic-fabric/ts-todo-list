@@ -20,16 +20,18 @@ export function TodoListItem(props): JSX.Element {
   };
 
   return (
-    <ListItem>
-      <Description>
+    <ListItem isDone={task.isDone}>
+      <TodoTask>
         <ToDoStatus>{task.isDone ? "DONE: " : "TO DO > "}</ToDoStatus>
 
-        {task.description}
-      </Description>
+        <TodoDescription isDone={task.isDone}>
+          {task.description}
+        </TodoDescription>
+      </TodoTask>
 
-      <DoUndoButton type="button" onClick={changeTaskStatus}>
+      <button type="button" onClick={changeTaskStatus}>
         {task.isDone ? "Done" : "Undo"}
-      </DoUndoButton>
+      </button>
     </ListItem>
   );
 }
@@ -48,17 +50,20 @@ const ListItem = styled.li`
   font-weight: 500;
 
   background: var(--primary-100);
+
+  color: ${(props) =>
+    props.isDone ? "var(--primary-500)" : "var(--primary-700)"};
+`;
+
+const TodoTask = styled.p`
+  margin: 0.25rem 0;
+  overflow: hidden;
 `;
 
 const ToDoStatus = styled.span`
   font-weight: 700;
 `;
 
-const Description = styled.p`
-  margin: 0.25rem 0;
-  overflow: hidden;
-`;
-
-const DoUndoButton = styled.button`
-  padding: 0.25rem 2rem;
+const TodoDescription = styled.span`
+  text-decoration: ${(props) => (props.isDone ? "line-through" : "none")};
 `;
